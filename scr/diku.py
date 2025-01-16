@@ -1,8 +1,3 @@
-#This is the start of the program.
-
-#os.chdir("")
-
-#Question 3
 
 
 # Replace 'file.txt' with your file's path
@@ -33,4 +28,4 @@ def count_word_no_spaces(text, word):
     return count
 
 
-print(count_word_no_spaces(content, "DIKU"))
+#print(count_word_no_spaces(content, "DIKU"))
