@@ -1,31 +1,43 @@
+def calculate_points(card):
+    """Calculate the points for a single card."""
+    # Split the card into winning numbers and numbers you have
+    parts = card.split('|')
+    winning_numbers = parts[0].strip().split()
+    numbers_you_have = parts[1].strip().split()
 
-#Question 4
+    # Convert to sets for fast lookups
+    winning_numbers_set = set(winning_numbers)
+    numbers_you_have_set = set(numbers_you_have)
 
-# Define the file content
-data = """Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
-Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
-Card 3: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"""
+    # Find matching numbers
+    matching_numbers = winning_numbers_set & numbers_you_have_set
 
-# Points per card
-points = {
-    "Card 1": 8,
-    "Card 2": 2,
-    "Card 3": 0
-}
+    # Calculate points based on the rules
+    points = 0
+    for i, _ in enumerate(matching_numbers):
+        if i == 0:
+            points += 1  # First match gives 1 point
+        else:
+            points *= 2  # Subsequent matches double the points
 
-# Initialize total points
-total_points = 0
+    return points
 
-# Split the data by lines
-lines = data.strip().split('\n')
+def total_points_from_file(filename):
+    """Calculate the total points from cards in a file."""
+    total = 0
 
-for line in lines:
-    # Extract card name
-    card_name = line.split(':')[0].strip()
+    with open(filename, 'r') as file:
+        for line in file:
+            # Skip empty lines
+            if not line.strip():
+                continue
 
-    # Add the card's points to the total
-    total_points += points.get(card_name, 0)
+            # Extract the part after 'Card   X:'
+            card_data = line.split(':', 1)[1].strip()
+            total += calculate_points(card_data)
 
-print("Total points for all cards:", total_points)
+    return total
 
-
+filename = "data/cards.txt"  # Replace with your file's name
+total = total_points_from_file(filename)
+#print(f"Total points for all cards: {total}")
