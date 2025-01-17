@@ -37,30 +37,45 @@
 
 https://www.w3schools.com/python/ref_string_find.asp
 
+
+
+
 \section{Question 2}
 
 
-\subsection{}
-A data type is 
+\subsection{What is a data type?}
 
-Illustrate the role data types play when representing data in Python, using examples from the thursday worksheets in 
+A data type defines the kind of data a variable can hold and the operations that can be performed on it. 
 
+It could be an string like "Hallo" or an interger "3" or a float "3.2" 
 
-\subsection{}
-
-You can repersent couler as number from 1 to n, numbers each number repersent a couler. The problem with this stragerty is that you might run out of destitied colur so it can be hard to tell the couler apart.  
-
-
-you can also do it by only giving 4 different coulre. 
+Data types can help with structuring data, make working with data more efficient. For example with optimize memory usage so there is allocated the correct amount of space. It can also help with minimaze "Error Prevention" so that two different types can't combine.
 
 
 
-\newpage
+\subsection{Representing colours}
+
+There it multiple ways (RGB: Best for precise control of color components, Hexadecimal: Convenient for web design and compatibility with CSS) 
+
+
+examples of this:
+
+color_rgb = (255, 0, 0)  # Red color
+color_hex = "#FF0000"  # Red color
+color_name = "red"  # Red color
+
+
+\subsection{Representing Neighbour Relation}
+
+
+
+
+\subsection{Colouring problem}
+
 
 \section{ Question 3}
 
 \subsection{}
-
 
 First i will use the build in function open(file,mode) where i use the relative file path to the file, so it will work on orther computer. I will call the object file, after that i will call use the build in method read() and call the string content.
 
@@ -70,21 +85,19 @@ then i make 2 variables, one called start another called index.
 
 then i make a while loop, that keeps looping until the condition is false.
 
-the function "text.find()" returns "-1" when there is no match. there by the condition "!= -1" becomes false and the loop stop. 
-
-and then the function returns the count.
+the function "text.find()" returns "-1" when there is no match. there by the condition "!= -1" becomes false and the loop stop.  and then the function returns the count.
 
 
 \lstinputlisting[language=Octave]{scr/diku.py}
 
 \subsection{}
 
-I used funtional programming as the main paradigm, but there is also a bit of object ortieede programming in the buildin methoes. 
+
+I used functional programming as the main paradigm, but there is also a bit of object oriented programming in the building methods. 
 
 
 \subsection{}
 
-In my program, I could use the input pattionon
 
 
 
@@ -92,10 +105,14 @@ In my program, I could use the input pattionon
 \section{Question 4}
 \subsection{}
 
+
+Here I define two functions, one called \texttt{calculate\_points} and another called \texttt{total\_points\_from\_file}.
+
+The first function, \texttt{calculate\_points}, takes as input a string.
+
+The second function, \texttt{total\_points\_from\_file}, takes as input the name of a \texttt{.txt} file. First, it initializes a variable \texttt{total} to zero. Then, it uses the built-in \texttt{open()} function on the filename provided as input to the function. It splits each line into a maximum of two parts using the colon (\texttt{:}) as the delimiter, and takes the second element of the list, removes any leading and trailing whitespace using \texttt{.strip()}, and saves this string as \texttt{card\_data}. After this, it appends the value from \texttt{calculate\_points(card\_data)} to \texttt{total}, adding the points from one string. The loop continues until there are no more lines to process, thanks to the \texttt{for line} statement.
+
 \lstinputlisting[language=Octave]{scr/cards.py}
-
-
-
 
 \subsection{}
 
@@ -104,14 +121,16 @@ What programming paradigm dominates in your program. Why?
 here i use object ortineted programming, also since the build in methoes is used in this way.
 
 
-
-
 \subsection{}
+
 
 Explain how you test your program.
 
 
 \section{}
+
+
+
 
 \subsection{}
 
