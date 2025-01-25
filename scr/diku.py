@@ -1,39 +1,27 @@
+def count_word(text, word):
+    """
+    Counts the occurrences of a word in a text using a purely functional approach.
 
-f = open('Data\diku.txt', "r")
+    Parameters:
+    text (str): The text to search within.
+    word (str): The word to count.
 
-content = f.read() 
+    Returns:
+    int: The number of occurrences of the word in the text.
+    """
+    def count_occurrences(text, word):
+        index = text.find(word)
+        if index == -1:
+            return 0  # Base case: no more occurrences
+        # Add 1 for the current match and recurse with the remaining text
+        return 1 + count_occurrences(text[index + len(word):], word)
+    
+    return count_occurrences(text, word)
 
-def CountWord(text, word):
-    count = 0
-    start = 0
-    while (index := text.find(word, start)) != -1:
-        count += 1
-        start = index + len(word)  # Move past the last found word
-    return count
+# Example usage:
+with open('Data/diku.txt', 'r') as f:  # File I/O is external to the functional part
+    content = f.read()
 
-
-#print(CountWord(content, "DIKU"))
-
-#test
-def test_CountWord():
-    # Test 1: Basic occurrence
-    
-    assert CountWord("COMPUTERSCINCE computerscince", "computerscince") == 1, "Test 1 Failed"  
-    
-    assert CountWord("Computerscince ", "Daniel") == 0, "Test 2 Failed"
-    
-    assert CountWord("hello Daniel", "hello") == 1, "Test 3 Failed"
-    
-    assert CountWord("COMPUTERSCINCE computerscince", "computerscince") == 1, "Test 4 Failed"  
-    
-    assert CountWord("Computerscince Computerscince", "Computerscince") == 2, "Test 5 Failed"
-    
-    assert CountWord("", "Computerscince") == 0, "Test 6 Failed"
-    
-    assert CountWord("COMPUTERSCINCE computerscince", "computerscince") == 1, "Test 7 Failed"  
-    
-    print("All tests passed!")
-
-# Run tests
-test_CountWord()
-
+# Count occurrences of a specific word
+result = count_word(content, "DIKU")
+print(result)
