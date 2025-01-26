@@ -80,15 +80,9 @@ color_name = "red"  # Red color
 
 \section{ Question 3}
 
+
 \subsection{}
 
-
-
-First i will use the build in function open(file,mode) where i use the relative file path to the file, so it will work on orther computer. I will call the object file, after that i will call use the build in method read() and call the string content.
-
-Now i will define a function called "CountWord" that takes as input the text, and then the word that would like to be counted.Then i make 2 variables, one called start another called index. Then i make a while loop, that keeps looping until the condition is false.
-
-The function "text.find()" returns "-1" when there is no match. there by the condition "!= -1" becomes false and the loop stop.  and then the function returns the count.
 
 
 \lstinputlisting[language=Octave]{scr/diku.py}
@@ -96,7 +90,14 @@ The function "text.find()" returns "-1" when there is no match. there by the con
 \subsection{}
 
 
-I used functional programming as the main paradigm, but there is also a bit of object oriented programming in the building methods. 
+
+Immutability:
+
+Functional programming relies heavily on immutable data. In the case of the function, the text and word are not altered within the function, which can reduce bugs related to unintended side effects from state changes.
+
+Debugging and Testing:
+
+Pure functions are easier to test and debug because their output depends solely on the input. There’s no hidden state that can change unexpectedly, which helps in understanding and validating the program's behavior.
 
 
 \subsection{}
