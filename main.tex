@@ -77,19 +77,33 @@ color_name = "red"  # Red color
 
 \subsection{Colouring problem}
 
+To see the full decribtion of my code, see the appendix for the code.
+
+
+
+
 
 \section{ Question 3}
 
 
 \subsection{}
 
-
-
-\lstinputlisting[language=Octave]{scr/diku.py}
-
 \subsection{}
 
 
+
+In the function "Search" it takes in the starting position as a x,y starting point and an direction from 1 out of the 8 direction eg. (-1,0). Then it seperate it from these inputs, after that it make a list of position from the starting point and in the direction that is given and to the lengh of the word that is giving. So it create a list of the exact location of each letter in the word like [(2, 3), (3, 4), (4, 5), (5, 6)], for the word word = "DIKU".
+
+Then in the next part it uses "return all()" function that only returns True if all parts is true. The first statement is using the privously function to make sure that the word is within the boundry, the next statement is checking ....
+
+nx1 and ny1 is created from the "char in zip(positions,word)) the "zip(position,word)" is a function that macthes the position and each letter in pair. It the example abouve it would be "[((2, 3), 'D'), ((3, 4), 'I'), ((4, 5), 'K'), ((5, 6), 'U')]"
+
+
+the variable "start" is returning every possible place where the word could start, by returning the position of the first letter "grid[x][y] == word[0]", in our case it would be everywhere there is a "D".
+
+
+
+I use funtional progamming
 
 Immutability:
 
@@ -101,6 +115,8 @@ Pure functions are easier to test and debug because their output depends solely 
 
 
 \subsection{}
+
+To test the code i will use specification driven testing in order to try to break the code. As we learned in the lectures from Friz, that "testing is NOT illustrating that your program runs on a friendly case". I got help from chatGPT to design the test cases.
 
 
 
@@ -116,14 +132,9 @@ The first function, \texttt{calculate\_points}, takes as input a string.
 
 The second function, \texttt{total\_points\_from\_file}, takes as input the name of a \texttt{.txt} file. First, it initializes a variable \texttt{total} to zero. Then, it uses the built-in \texttt{open()} function on the filename provided as input to the function. It splits each line into a maximum of two parts using the colon (\texttt{:}) as the delimiter, and takes the second element of the list, removes any leading and trailing whitespace using \texttt{.strip()}, and saves this string as \texttt{card\_data}. After this, it appends the value from \texttt{calculate\_points(card\_data)} to \texttt{total}, adding the points from one string. The loop continues until there are no more lines to process, thanks to the \texttt{for line} statement.
 
-\lstinputlisting[language=Octave]{scr/cards.py}
-
 \subsection{}
 
-What programming paradigm dominates in your program. Why?
-
-here i use object ortineted programming, also since the build in methoes is used in this way.
-
+Here I try to use mostly funtional and imperative programming.  
 
 \subsection{}
 
@@ -137,5 +148,8 @@ Explain how you test your program.
 
 
 \subsection{}
+
+\input{Appendix}
+
 
 \end{document}
