@@ -60,8 +60,6 @@ def find_word(grid, word):
     return found_count
 
 
-
-
 grid_normal = [
         [".", ".", "D", ".", ".", "."],
         [".", "U", "K", "I", "D", "."],
@@ -71,7 +69,3 @@ grid_normal = [
     ]
 count_empty_word = find_word(grid_normal, "DIKU")
 print(count_empty_word)
-
-
-
-

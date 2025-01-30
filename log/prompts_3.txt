@@ -1,0 +1,76 @@
+from GitHub chatgpt in VS code: 
+
+
+GitHub Copilot
+Sure, I'll add specifications (docstrings) to all functions in the file and ensure the example usage is clear.
+
+
+"def parse_card(card_data):
+    """Parse card data to extract winning and owned numbers.
+    
+    Args:
+        card_data (str): A string containing card data.
+        
+    Returns:
+        tuple: A tuple containing two sets, one for winning numbers and one for owned numbers.
+    """
+    parts = card_data.split('|')
+    winning_numbers = set(parts[0].strip().split())
+    owned_numbers = set(parts[1].strip().split())
+    
+    return winning_numbers, owned_numbers
+
+def calculate_points(card_data):
+    """Calculate points for a single card based on matching numbers.
+    
+    Args:
+        card_data (str): A string containing card data.
+        
+    Returns:
+        int: The points calculated based on the matching numbers.
+    """
+    winning_numbers, owned_numbers = parse_card(card_data)
+    matched_numbers = winning_numbers & owned_numbers
+
+    points = 0
+    for _ in matched_numbers:
+        points = points * 2 if points else 1
+    return points
+
+def load_cards(filename):
+    """Load card data from a file and return as a list of strings.
+    
+    Args:
+        filename (str): The path to the file containing card data.
+        
+    Returns:
+        list of str: A list of card data strings.
+    """
+    with open(filename, 'r') as file:
+        return [line.split(':', 1)[1].strip() for line in file]
+
+def calculate_total_points(cards):
+    """Calculate the total points for a list of cards.
+    
+    Args:
+        cards (list of str): A list of card data strings.
+        
+    Returns:
+        int: The total points calculated from the list of cards.
+    """
+    total_points = 0
+    for card in cards:
+        total_points += calculate_points(card)
+    return total_points
+
+# Example usage
+if __name__ == "__main__":
+    filename = "Data/cards.txt"
+    cards = load_cards(filename)
+    total_points = calculate_total_points(cards)
+    print(f"Total points: {total_points}")"
+
+
+
+
+This version includes docstrings for all functions, specifying their arguments and return values, and retains the example usage in the main block.

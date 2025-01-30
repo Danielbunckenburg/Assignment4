@@ -34,53 +34,7 @@ def calculate_total_points(cards):
     return total_points
 
 
-
-
-
-
-# Test 1: Empty card data
-card_data_1 = "|"
-try:
-    print(f"Points for empty card data: {calculate_points(card_data_1)}")
-except ValueError as e:
-    print(f"Error: {e}")
-
-# Test 2: Non-numeric input in card data
-card_data_2 = "1 2 3 | a b c"
-try:
-    print(f"Points for non-numeric input: {calculate_points(card_data_2)}")
-except ValueError as e:
-    print(f"Error: {e}")
-
-# Test 3: Invalid card format (no '|')
-card_data_3 = "1 2 3 4 5"
-try:
-    print(f"Points for invalid format: {calculate_points(card_data_3)}")
-except ValueError as e:
-    print(f"Error: {e}")
-
-# Test 4: Extra whitespace in card data
-card_data_4 = " 1  2  3  | 4  5  6 "
-try:
-    print(f"Points for extra whitespace: {calculate_points(card_data_4)}")
-except ValueError as e:
-    print(f"Error: {e}")
-
-# Test 5: Malformed card data in file
-# Assuming a file with the following content:
-# card1 | 1 2 3 | 4 5 6
-# card2 | 7 8 9 | 10 11 12
-filename = "data/cards.txt"  # File should contain malformed data
-
-# Test 6: File does not exist
-try:
-    cards = load_cards("invalid_file.txt")
-except Exception as e:
-    print(f"Error loading cards: {e}")
-
-# Test 7: Card data with only one number in each set
-card_data_5 = "1 | 1"
-try:
-    print(f"Points for single number match: {calculate_points(card_data_5)}")
-except ValueError as e:
-    print(f"Error: {e}")
+filename = "../Data/cards.txt"
+cards = load_cards(filename)
+total_points = calculate_total_points(cards)
+print(f"Total points: {total_points}")
