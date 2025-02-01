@@ -56,21 +56,27 @@ the way i would have solved it was
 
 
 
-
-
 \subsection{Representing colours}
 
-There it multiple ways (RGB: Best for precise control of color components, Hexadecimal: Convenient for web design and compatibility with CSS) 
+
+There are multiple ways to repercent color in any program language. Specificily in python there is using a string with the names of the colur for example "Green", "Yellow" or "red" another way is to make a RGB (RedGreenBlue) tuple that store the different values of each colur from 0 to 255 is the full intensity so it could be "color_rgb = (255, 0, 0)  # Red color" , a more simple way is repercent colers as intergers like from 0. So it is numerics, like country 1 get the coulr 1, then country 2 get coulr 2 and maybe country 3 get coulr 1 like the first country. 
 
 
-examples of this:
+in my solution to the colour problem in pyhon, the canExtendColour function would is using interger, if it insted used Strings this part "colouring.get(other) != colour" would still be valid  so there would be no changes, likewise with representing it with RGB tuples, the logic would remain the same. 
 
-color_rgb = (255, 0, 0)  # Red color
-color_hex = "#FF0000"  # Red color
-color_name = "red"  # Red color
+explain more here:......
 
+
+
+So there are different tradeoffs between choosing this representation. The first on as strings is easy readable for humans, wítch is an advantage, the downside is though that "Predefined list required: You must maintain an array like ["red", "blue", "green", "yellow"].". Then there is the second representation, as Integers there the advantage is (Simple and efficient: Integer comparisons (!=) are very fast.)  .... the disadvantage is that it is Not human-readable and if wanting to intergrate it with libaries like mathplotlib you first have to map the numbers to colure
+
+the last way is RGB, the advantage is that many orther libaryerise is easy to impliment it, and it is highly customizable with the shade for example, and it is dynamic color generation . The disadvantages is though that it is Less human-readable, 
+
+I choose to use intergers in my solution since we dont need to many colurs, 
 
 \subsection{Representing Neighbour Relation}
+
+
 
 
 
@@ -90,7 +96,8 @@ the next function is "can_extend_colour" is
 
 \subsection{}
 
-\subsection{}
+See appendix for the full code and the specifications as doc string
+
 
 
 
@@ -105,18 +112,19 @@ the variable "start" is returning every possible place where the word could star
 
 
 
-I use funtional progamming
 
-Immutability:
+\subsection{}
 
-Functional programming relies heavily on immutable data. In the case of the function, the text and word are not altered within the function, which can reduce bugs related to unintended side effects from state changes.
 
-Debugging and Testing:
+For this solution i used imperative programming witch is simple and easy for small programs that is not going to be re..... NBNBN blablabla
 
-Pure functions are easier to test and debug because their output depends solely on the input. There’s no hidden state that can change unexpectedly, which helps in understanding and validating the program's behavior.
+
 
 
 \subsection{}
+
+
+
 
 To test the code i will use specification driven testing in order to try to break the code. As we learned in the lectures from Friz, that "testing is NOT illustrating that your program runs on a friendly case". I got help from chatGPT to design the test cases.
 
