@@ -15,6 +15,8 @@ def is_neighbour(nr: NeighbourRelation, c1: Country, c2: Country) -> bool:
     """
     return (c1, c2) in nr or (c2, c1) in nr
 
+
+
 def can_extend_colour(nr: NeighbourRelation, country: Country, colouring: Colouring, colour: int) -> bool:
     """Check if a country can be coloured with a specific colour.
     
@@ -28,6 +30,9 @@ def can_extend_colour(nr: NeighbourRelation, country: Country, colouring: Colour
         bool: True if the country can be coloured with the specified colour, False otherwise.
     """
     return all(not is_neighbour(nr, country, other) or colouring.get(other) != colour for other in colouring)
+
+
+
 
 def colour_countries(nr: NeighbourRelation) -> Colouring:
     """Colour countries such that no two neighbouring countries have the same colour.
