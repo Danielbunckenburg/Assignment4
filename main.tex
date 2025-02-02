@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{listings}
 \usepackage{xcolor}
-
+\usepackage{booktabs} % For better-looking tables
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -33,8 +33,7 @@
 
 \section{Question 1}
 
-
-https://www.w3schools.com/python/ref_string_find.asp and i uses chatgpt as well. 
+I have used $https://www.w3schools.com/python/$ to look at the build in functions, the arguments and  what it returns. I have used chatgpt, first to get some inspiration to a solutions, tried to simplify it and asked folow up question about the solution. I have used it as well after writing to make the construct of the scentsing more professional. Finally i have used it to make specification to the code and read what it have been written carefully after.
 
 
 
@@ -49,117 +48,112 @@ It could be an string like "Hallo" or an interger "3" or a float "3.2"
 
 Data types can help with structuring data, make working with data more efficient. For example with optimize memory usage so there is allocated the correct amount of space. It can also help with minimaze "Error Prevention" so that two different types can't combine.
 
-an example is from the exercise week 13, question 1. "How do you choose to represent the price of electricity? Describe three possible data structures (using Python) that you could use and explain which one you choose."
-
-
-the way i would have solved it was
-
 
 
 \subsection{Representing colours}
 
+There are multiple methods for representing colors in programming languages. Specifically, in Python, colors can be represented using string names such as "Green", "Yellow", or "Red". Another common approach is to use an RGB (Red-Green-Blue) tuple, where each color component is assigned a value between 0 and 255, indicating its intensity. For example, the color red can be represented as color_rgb = (255, 0, 0).
 
-There are multiple ways to repercent color in any program language. Specificily in python there is using a string with the names of the colur for example "Green", "Yellow" or "red" another way is to make a RGB (RedGreenBlue) tuple that store the different values of each colur from 0 to 255 is the full intensity so it could be "color_rgb = (255, 0, 0)  # Red color" , a more simple way is repercent colers as intergers like from 0. So it is numerics, like country 1 get the coulr 1, then country 2 get coulr 2 and maybe country 3 get coulr 1 like the first country. 
+An alternative method for representing colors is through integer values. In this approach, each entity (e.g., a country in a mapping application) is assigned a numerical color identifier. For instance, country 1 might be assigned color 1, country 2 color 2, and country 3 might reuse color 1.
 
+In my implementation of the color assignment problem in Python, the canExtendColour function operates using integers. However, if the function instead used strings, the expression colouring.get(other) != colour would still be valid, meaning the overall logic would remain unchanged. Similarly, if colors were represented using RGB tuples, the core logic would remain the same.
 
-in my solution to the colour problem in pyhon, the canExtendColour function would is using interger, if it insted used Strings this part "colouring.get(other) != colour" would still be valid  so there would be no changes, likewise with representing it with RGB tuples, the logic would remain the same. 
+Each method of color representation has its advantages and disadvantages. Using string names is highly human-readable, which is beneficial for interpretability. However, a predefined list of colors is required (e.g., ["red", "blue", "green", "yellow"]), which can be limiting. The integer representation offers computational efficiency since integer comparisons (e.g., !=) are fast. However, it is less human-readable and requires additional mapping to integrate with libraries such as Matplotlib. The RGB representation provides high flexibility and seamless integration with many external libraries. Additionally, it allows for dynamic color generation and customization. However, it is less human-readable compared to string-based representations.
 
-explain more here:......
-
-
-
-So there are different tradeoffs between choosing this representation. The first on as strings is easy readable for humans, wítch is an advantage, the downside is though that "Predefined list required: You must maintain an array like ["red", "blue", "green", "yellow"].". Then there is the second representation, as Integers there the advantage is (Simple and efficient: Integer comparisons (!=) are very fast.)  .... the disadvantage is that it is Not human-readable and if wanting to intergrate it with libaries like mathplotlib you first have to map the numbers to colure
-
-the last way is RGB, the advantage is that many orther libaryerise is easy to impliment it, and it is highly customizable with the shade for example, and it is dynamic color generation . The disadvantages is though that it is Less human-readable, 
-
-I choose to use intergers in my solution since we dont need to many colurs, 
+For my implementation, I chose to use integers, as the number of required colors is relatively small, making this approach both efficient and sufficient for the problem at hand.
 
 \subsection{Representing Neighbour Relation}
 
-
-
-
+See the contry type in the next section, in the code.
 
 
 \subsection{Colouring problem}
 
-To see the full decribtion of my code, see the appendix for the code. 
 
-The first function is "Is_neighbour" that is a function that check if a pair of two counties is neighbours, it does this by a list of tuples of country pairs that is naibours.
 
-the next function is "can_extend_colour" is 
+\lstinputlisting[language=Octave]{scr/colouring.py}
 
 
 
 \section{ Question 3}
 
+\subsection{}
+
+
+\lstinputlisting[language=Octave]{scr/diku.py}
+
 
 \subsection{}
 
-See appendix for the full code and the specifications as doc string
+For this solution i used imperative programming witch is simple and easy for small programs that is not going to be reused over and over agian. Imperative programming makes it easy to manipulate variables, memory, and data structures directly. The drawback with imperative programming is also that there can easy be errors due to small modifications in the code , with unintended side effects. 
 
-
-
-
-In the function "Search" it takes in the starting position as a x,y starting point and an direction from 1 out of the 8 direction eg. (-1,0). Then it seperate it from these inputs, after that it make a list of position from the starting point and in the direction that is given and to the lengh of the word that is giving. So it create a list of the exact location of each letter in the word like [(2, 3), (3, 4), (4, 5), (5, 6)], for the word word = "DIKU".
-
-Then in the next part it uses "return all()" function that only returns True if all parts is true. The first statement is using the privously function to make sure that the word is within the boundry, the next statement is checking ....
-
-nx1 and ny1 is created from the "char in zip(positions,word)) the "zip(position,word)" is a function that macthes the position and each letter in pair. It the example abouve it would be "[((2, 3), 'D'), ((3, 4), 'I'), ((4, 5), 'K'), ((5, 6), 'U')]"
-
-
-the variable "start" is returning every possible place where the word could start, by returning the position of the first letter "grid[x][y] == word[0]", in our case it would be everywhere there is a "D".
-
+For complex problems, it can be hard to maintain, and the lack of modularity makes it hard to reuse it. And therefore wouldn't it be a optimal choice with that setting then funtional programming or obejct orinted programming would be more sutable.
 
 
 
 \subsection{}
 
+I used input partition, because of different benefits,as we learned in the lectures from Friz, that "testing is NOT illustrating that your program runs on a friendly case" it is suppose to find where the code breaks. By covering different types of inputs (valid and invalid), it increases the chances of discovering boundary issues, edge cases, and unexpected behavior in the code. At the same time it makes for efficient testing, instead of testing all possible inputs, which can be impractical, input partitioning reduces the number of test cases while still covering important scenarios. And it ensuring key input conditions are checked without random guessing so a systematic and Structured Approach to testing. 
 
-For this solution i used imperative programming witch is simple and easy for small programs that is not going to be re..... NBNBN blablabla
-
-
-
-
-\subsection{}
-
-
-
-
-To test the code i will use specification driven testing in order to try to break the code. As we learned in the lectures from Friz, that "testing is NOT illustrating that your program runs on a friendly case". I got help from chatGPT to design the test cases.
-
-
-
+I will try to test if it finds all the "DIKU" in a sample test, i have made one with only 2 and if it counts correctly it will print out test1 passed. Then i do another test for a different word than what is in the sample. Then i test for a single character, and then i test for an empty grid.
 
 
 \section{Question 4}
-\subsection{}
-
-
-Here I define two functions, one called \texttt{calculate\_points} and another called \texttt{total\_points\_from\_file}.
-
-The first function, \texttt{calculate\_points}, takes as input a string.
-
-The second function, \texttt{total\_points\_from\_file}, takes as input the name of a \texttt{.txt} file. First, it initializes a variable \texttt{total} to zero. Then, it uses the built-in \texttt{open()} function on the filename provided as input to the function. It splits each line into a maximum of two parts using the colon (\texttt{:}) as the delimiter, and takes the second element of the list, removes any leading and trailing whitespace using \texttt{.strip()}, and saves this string as \texttt{card\_data}. After this, it appends the value from \texttt{calculate\_points(card\_data)} to \texttt{total}, adding the points from one string. The loop continues until there are no more lines to process, thanks to the \texttt{for line} statement.
-
-\subsection{}
-
-Here I try to use mostly funtional and imperative programming.  
 
 \subsection{}
 
 
-Explain how you test your program.
+\lstinputlisting[language=Octave]{scr/cards.py}
 
+\subsection{}
 
-\section{}
-
+This problem is like the previously problem an small one so i used imperative programming again here with the same benefit as i describe before. 
 
 
 
 \subsection{}
+ I use input partition the same as in the previous program with the same benefits. 
 
-\input{Appendix}
+First I test the $parse_card()$ function, it is supposed to separate from a string, the winning numbers and owned numbers. First i try with some valid test cases, with only one winner and one owned number. After that i try some invalid test cases with wrong format like without $|$, or with multiple of $|$.
+
+I make a function $test_points()$ that test if we get what we expect from the $calculate_points$ function. First where we expect 0 return, then where we expect 2 and finally last where we expect 0 return since there is no numbers we have.
+
+the i test if the loading of the cards works, using the $load_cards()$ function. First by creating a temporary file called $test_file.txt$ with 2 cards in it, and then using the function to load it. and giving the expected output.
+
+And then finally  i test if the calculation of total points works with the function $calculate_total_points()$ with an sample cards and an empty cards after and double checking if i got the expected result.
+
+\subsection{}
+
+In my programs i used variables often, and often also where it is mutable in loops for example where it is used to count to
+
+\section*{Variable Descriptions}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{p{4cm} p{4cm} p{7cm}} % Adjusted column widths
+        \toprule
+        \textbf{Variable Name} & \textbf{Function} & \textbf{Description} \\
+        \midrule
+        $card\_data$ & parse\_card & String containing winning and owned numbers separated by "\texttt{|}" \\
+        $parts$ & parse\_card & List created by splitting $card\_data$ on "\texttt{|}" \\
+        $winning\_numbers$ & parse\_card & Set of numbers from the first part (winning numbers) \\
+        $owned\_numbers$ & parse\_card & Set of numbers from the second part (owned numbers) \\
+        $winning\_numbers$ & calculate\_points & Set of winning numbers from $parse\_card(card\_data)$ \\
+        $owned\_numbers$ & calculate\_points & Set of owned numbers from $parse\_card(card\_data)$ \\
+        $matched\_numbers$ & calculate\_points & Set of numbers that appear in both $winning\_numbers$ and $owned\_numbers$ \\
+        $points$ & calculate\_points & Integer tracking total points, doubling for each match \\
+        $filename$ & load\_cards & String representing the file path for card data \\
+        $file$ & load\_cards & File object used to read from $filename$ \\
+        $line$ & load\_cards & A single line from the file, formatted as "CardX: winning\_numbers | owned\_numbers" \\
+        $cards$ & calculate\_total\_points & List of strings containing "winning\_numbers | owned\_numbers" \\
+        $total\_points$ & calculate\_total\_points & Integer storing the total sum of points from all cards \\
+        $card$ & calculate\_total\_points & Single string representing a card from the $cards$ list \\
+        $cards$ & Main Program & List of parsed card data from "\texttt{../Data/cards.txt}" \\
+        $total\_points$ & Main Program & Integer representing the total sum of points from all cards \\
+        \bottomrule
+    \end{tabular}
+    \caption{Variable Descriptions in the Card Points Program}
+    \label{tab:variables}
+\end{table}
 
 
 \end{document}
