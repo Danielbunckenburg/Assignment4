@@ -42,6 +42,10 @@ def find_word(grid, word):
         - Counts overlapping occurrences of the word.
         - Ensures words are counted even if they cross boundaries.
     """
+
+    if not grid:
+        return 0
+
     rows, cols = len(grid), len(grid[0])
     directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
 
@@ -60,7 +64,19 @@ def find_word(grid, word):
 
     def search(start_x, start_y, dx, dy):
         """
-        Searches for the word starting from a given position in a specified direction.
+        In the function "Search" it takes in the starting position as a x,y starting point and an direction from 1 out of the 8 direction 
+        eg. (-1,0). Then it seperate it from these inputs, after that it make a list of position from the starting point and in the 
+        direction that is given and to the lengh of the word that is giving. 
+        So it create a list of the exact location of each letter in the word like [(2, 3), (3, 4), (4, 5), (5, 6)], for the word word = "DIKU". 
+        
+        Then in the next part it uses "return all()" function that only returns True if all parts is true.  The first statement "is_valid" 
+        "is using the privously function to make sure that the word is within the boundary. grid[x][y] == word[i]: Ensures that the letter at each position 
+        matches the corresponding letter in the word.
+
+        The nested loops iterate over all possible grid positions (x, y).The first check (if grid[x][y] == word[0]) ensures that we only start searching 
+        from positions where the first letter of the word matches.The second loop iterates over all directions, calling
+        the search function to check if the word can be formed starting from the position (x, y) and moving in the direction (dx, dy).
+        
 
         Args:
             start_x (int): Starting row index.
@@ -93,4 +109,57 @@ grid = read_grid_from_file("../Data/diku.txt")
 
 # Search for "DIKU"
 count_diku = find_word(grid, "DIKU")
-print(count_diku)  # Should print 18
+print(f"From file DIKU.txt the number of times DIKU is in it is  {count_diku}")  # Should print 18
+
+
+
+
+def test_find_word():
+    grid = [
+        ['D', 'I', 'K', 'U'],
+        ['', 'I', '', ''],
+        ['', '', 'K', ''],
+        ['', '', '', 'U']
+    ]
+    
+    # Test case 1: Search for "DIKU" in the grid
+    count = find_word(grid, "DIKU")
+    if count == 2:
+        print("test_find_word passed for 'DIKU'.")
+    else:
+        print(f"test_find_word failed for 'DIKU'. Expected 18, got {count}.")
+        
+    # Test case 2: Search for a word not in the grid (e.g., "HELLO")
+    count = find_word(grid, "HELLO")
+    if count == 0:
+        print("test_find_word passed for 'HELLO' (not found).")
+    else:
+        print(f"test_find_word failed for 'HELLO'. Expected 0, got {count}.")
+        
+    # Test case 3: Search for a word in reverse direction (e.g., "UKID")
+    count = find_word(grid, "UKID")
+    if count == 2:
+        print("test_find_word passed for 'UKID'.")
+    else:
+        print(f"test_find_word failed for 'UKID'. Expected 18, got {count}.")
+        
+    # Test case 4: Search for a single character word (e.g., "I")
+    count = find_word(grid, "I")
+    if count == 2:
+        print("test_find_word passed for 'I'.")
+    else:
+        print(f"test_find_word failed for 'I'. Expected 2, got {count}.")
+        
+    # Test case 5: Test with an empty grid
+    grid = []
+    count = find_word(grid, "DIKU")
+    if count == 0:
+        print("test_find_word passed for empty grid.")
+    else:
+        print(f"test_find_word failed for empty grid. Expected 0, got {count}.")
+
+
+# Run the tests manually
+test_find_word()
+
+
