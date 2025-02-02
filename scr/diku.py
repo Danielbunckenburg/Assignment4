@@ -16,25 +16,19 @@ def read_grid_from_file(filename):
     """
     with open(filename, "r") as file:
         return [list(line.strip()) for line in file if line.strip()]
-
-
+    
 def find_word(grid, word):
     """
     Finds all occurrences of a word in a 2D grid considering all possible directions.
-
     Args:
         grid (list[list[str]]): The 2D grid of characters.
         word (str): The word to search for.
 
     Returns:
         int: The total number of occurrences of the word in the grid.
-
-   
     """
-
     if not grid:
         return 0
-
     rows, cols = len(grid), len(grid[0])
     directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
 
@@ -74,8 +68,6 @@ def find_word(grid, word):
         return 0  # No occurrence
 
     found_count = 0
-
-
     for x in range(rows):
         for y in range(cols):
             if grid[x][y] == word[0]:  # Only check positions where the word could start
@@ -83,17 +75,12 @@ def find_word(grid, word):
                     found_count += search(x, y, dx, dy)
 
     return found_count
-
-
 # Read grid from file
 grid = read_grid_from_file("../Data/diku.txt")
 
 # Search for "DIKU"
 count_diku = find_word(grid, "DIKU")
 print(f"From file DIKU.txt the number of times DIKU is in it is  {count_diku}")  # Should print 18
-
-
-
 
 def test_find_word():
     grid = [
@@ -139,8 +126,6 @@ def test_find_word():
     else:
         print(f"test_find_word failed for empty grid. Expected 0, got {count}.")
 
-
-# Run the tests manually
 test_find_word()
 
 

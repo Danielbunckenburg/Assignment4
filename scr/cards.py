@@ -2,16 +2,13 @@ def parse_card(card_data):
     """
     Parses a string containing card data into two sets of numbers: 
     winning numbers and owned numbers.
-
     Parameters:
     card_data (str): A string formatted as "winning_numbers | owned_numbers", 
                      where each part is a space-separated list of numbers.
-
     Returns:
     tuple: A tuple containing two sets:
         - winning_numbers (set): A set of numbers from the first part of card_data.
         - owned_numbers (set): A set of numbers from the second part of card_data.
-
     Raises:
     ValueError: If the card_data format is invalid (does not contain exactly one '|').
     """
@@ -46,7 +43,6 @@ def calculate_points(card_data):
     """
     winning_numbers, owned_numbers = parse_card(card_data)
     matched_numbers = winning_numbers & owned_numbers
-
     points = 0
     for _ in matched_numbers:
         points = points * 2 if points else 1
@@ -70,7 +66,7 @@ def load_cards(filename):
     """
     with open(filename, 'r') as file:
         return [line.split(':', 1)[1].strip() for line in file]
-
+    
 def calculate_total_points(cards):
     """
     Calculates the total points from a list of cards. It calls `calculate_points` 
@@ -79,10 +75,8 @@ def calculate_total_points(cards):
     Parameters:
     cards (list of str): A list of strings representing the card data, 
                          each in the format "winning_numbers | owned_numbers".
-
     Returns:
     int: The total points from all the cards.
-
     Raises:
     ValueError: If any card data format is invalid, it will propagate the exception 
                 raised by `calculate_points`.
@@ -92,11 +86,9 @@ def calculate_total_points(cards):
         total_points += calculate_points(card)
     return total_points
 
-
 cards = load_cards( "../Data/cards.txt")
 total_points = calculate_total_points(cards)
 print(f"Total points: {total_points}")
-
 
 def test_parse_card():
     # Valid test cases
@@ -120,7 +112,6 @@ def test_parse_card():
         pass  # Expected error, do nothing
 
     print("test_parse_card passed")
-
 def test_points():
     # Valid test cases
     result = calculate_points("34 8 54 | 84 17 3")
@@ -132,9 +123,7 @@ def test_points():
 
     result = calculate_points("34 8 54  | ")
     assert result == 0, f"Expected 0, but got {result}"
-
     print("test_points passed")
-
 def test_load_cards():
     # Creating a temporary test file
     with open('test_file.txt', 'w') as f:
@@ -142,7 +131,6 @@ def test_load_cards():
 
     result = load_cards('test_file.txt')
     assert result == ['1 2 3 | 3 4', '4 5 6 | 1 2'], f"Expected ['1 2 3 | 3 4', '4 5 6 | 1 2], but got {result}"
-
     print("test_load_cards passed")
 
 def test_calculate_total_points():
@@ -156,8 +144,6 @@ def test_calculate_total_points():
     assert result == 0, f"Expected 0, but got {result}"
 
     print("test_calculate_total_points passed")
-
-
 # Run all tests
 test_parse_card()
 test_points()
