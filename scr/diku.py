@@ -29,18 +29,7 @@ def find_word(grid, word):
     Returns:
         int: The total number of occurrences of the word in the grid.
 
-    Behavior:
-        - Searches for the word in 8 possible directions:
-            1. Left to right
-            2. Right to left
-            3. Top to bottom
-            4. Bottom to top
-            5. Diagonal (top-left to bottom-right)
-            6. Diagonal (bottom-right to top-left)
-            7. Diagonal (top-right to bottom-left)
-            8. Diagonal (bottom-left to top-right)
-        - Counts overlapping occurrences of the word.
-        - Ensures words are counted even if they cross boundaries.
+   
     """
 
     if not grid:
@@ -68,15 +57,7 @@ def find_word(grid, word):
         eg. (-1,0). Then it seperate it from these inputs, after that it make a list of position from the starting point and in the 
         direction that is given and to the lengh of the word that is giving. 
         So it create a list of the exact location of each letter in the word like [(2, 3), (3, 4), (4, 5), (5, 6)], for the word word = "DIKU". 
-        
-        Then in the next part it uses "return all()" function that only returns True if all parts is true.  The first statement "is_valid" 
-        "is using the privously function to make sure that the word is within the boundary. grid[x][y] == word[i]: Ensures that the letter at each position 
-        matches the corresponding letter in the word.
-
-        The nested loops iterate over all possible grid positions (x, y).The first check (if grid[x][y] == word[0]) ensures that we only start searching 
-        from positions where the first letter of the word matches.The second loop iterates over all directions, calling
-        the search function to check if the word can be formed starting from the position (x, y) and moving in the direction (dx, dy).
-        
+               
 
         Args:
             start_x (int): Starting row index.
